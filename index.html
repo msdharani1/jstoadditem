@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskY</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body{
+            background-color: #ebf2ff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="mb-3">
+                <label for="imageurl" class="form-label">Image Url</label>
+                <input type="url" class="form-control" id="imageurl" aria-describedby="Image Url" placeholder="https://example.com/image.png">
+              </div>
+              <div class="mb-3">
+                <label for="tasktitle" class="form-label">Task Title</label>
+                <input type="text" class="form-control" id="tasktitle" aria-describedby="Task Title" placeholder="Enter Task Title">
+              </div>
+              <div class="mb-3">
+                <label for="tasktype" class="form-label">Tack Type</label>
+                <input type="text" class="form-control" id="tasktype" aria-describedby="Tack Type" placeholder="Enter Task Type">
+              </div>
+              <div class="mb-3">
+                <label for="taskdescrription" class="form-label">Task Description</label>
+                <textarea row="6" type="text" class="form-control" id="taskdescrription" aria-describedby="Task Description" placeholder="Task Description"></textarea>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" onclick="saveChanges()" data-bs-dismiss="modal">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand fw-bold text-primary" href="#">TaskY</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active fw-bold" aria-current="page" href="#">Home</a>
+              </li>     
+            </ul>
+            <form class="d-flex" role="search"> 
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-plus fw-bold"></i> Add New</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    <div class="container">
+        <div class="row mt-3">
+            <div class="col"></div>
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="input-group mb-3 shadow">
+                    <input type="text" class="form-control" placeholder="Search Here" aria-label="Search Here" aria-describedby="basic-addon2">
+                    <span class="input-group-text" id="basic-addon2"><i class="fa-solid fa-magnifying-glass"></i></span>
+                  </div>
+            </div>
+            <div class="col"></div>
+        </div>
+
+        <div class="row task__container">
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-end gap-2">
+                        <button type="button" class="btn btn-outline-success"><i class="fa-solid fa-pen"></i></button>
+                        <button type="button" class="btn btn-outline-danger"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                    <div class="card-body">
+                      <img src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aHVtYW58ZW58MHx8MHx8fDA%3D&w=1000&q=80" class="card-img-top" alt="img">
+                      <h5 class="card-title mt-3 fw-bold text-primary">A man do somethink</h5>
+                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                  </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script src="my-js-file.js"></script>
+</body>
+</html>
